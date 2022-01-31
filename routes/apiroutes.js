@@ -7,9 +7,9 @@ const {
   writeToFile,
 } = require('../helpers/fsUtils');
 
-const notesRouter = express.Router();
+const apiRouter = express.Router();
 
-notesRouter.post('/', (req, res) => {
+apiRouter.post('/', (req, res) => {
   console.log(req.body);
   const {title, topic} = req.body;
   if (req.body) {
@@ -21,15 +21,15 @@ notesRouter.post('/', (req, res) => {
     readAndAppend(newNotes, './db/db.json');
     res.json(`Note added succesfully`);
   } else {
-    res.error('Error in adding tip');
+    res.error('Error in adding note');
   }
 });
 
-notesRouter.get('/', (req, res) => {
+apiRouter.get('/', (req, res) => {
   readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
-notesRouter.get('/:id', (req, res) => {
+apiRouter.get('/:id', (req, res) => {
   const noteId = req.params.id;
   readFromFile('./db/db.json')
     .then((data) => JSON.parse(data))
@@ -41,7 +41,7 @@ notesRouter.get('/:id', (req, res) => {
     });
 });
 
-tips.delete('/:id', (req, res) => {
+apiRouter.delete('/:id', (req, res) => {
   const noteId = req.params.id;
   readFromFile('./db/tips.json')
     .then((data) => JSON.parse(data))
@@ -58,4 +58,4 @@ tips.delete('/:id', (req, res) => {
 });
 
 
-module.export = router;
+module.export = apiRouter;
