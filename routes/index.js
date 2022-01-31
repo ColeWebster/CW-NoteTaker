@@ -1,9 +1,9 @@
 const express = require('express');
 
-const apiRotuer = require('./apiroutes');
+const apiRouter = require('./apiroutes');
 
 const app = express();
 
-app.use('/apiroutes', apiRotuer)
+app.use('/apiroutes', apiRouter);
 
 module.exports = app;
