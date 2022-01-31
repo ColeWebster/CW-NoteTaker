@@ -7,7 +7,10 @@ router.get('/', (req,res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
-tips.post('/', (req, res) => {
+
+
+
+router.post('/', (req, res) => {
     console.log(req.body);
   
     const { username, topic, tip } = req.body;
@@ -21,9 +24,9 @@ tips.post('/', (req, res) => {
       };
   
       readAndAppend(newTip, './db/tips.json');
-      res.json(`Tip added successfully 🚀`);
+      res.json(`Note added successfully 🚀`);
     } else {
-      res.error('Error in adding tip');
+      res.error('Error in adding note');
     }
   });
     
