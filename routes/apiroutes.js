@@ -52,4 +52,4 @@ noteRouter.delete("/:id", (req, res) => {
   });
 })
 
-module.export = notesRouter
+module.export = notesRouter;
