@@ -1,41 +1,50 @@
-// Check mini project for routing help
-const express = require('express');
-// Random ID grabber
-const { v4: uuidv4 } = require('uuid');
-// Deconstructed for writing files
+const notes = require('express').Router();
 const { readFromFile, writeToFile, readAndAppend } = require('../helpers/fsUtils');
-
-const noteRouter = express.Router();
+const { v4: uuidv4 } = require('uuid');
 
 // Read data base and bring it in via JSON
-noteRouter.get("/", (req, res) => {
+notes.get("/", (req, res) => {
+  console.info(`${req.method} request received for note`);
   readFromFile("./db/db.json").then((data) => res.json(JSON.parse(data)));
 });
 
-// Posting the note by taking  and saving as a new file, wrong format posts error.
-noteRouter.post("/", (req, res) => {
-  const { title, text } = req.body;
-  if (title && text) {
-    const newNotes = {
+notes.post("/api/notes", (req,res) => {
+  console.info(`${req.method} request received to add a note}`);
+  const { title, topic } = req.body;
+  if (title && topic) {
+    const newNote = {
       title,
-      text,
-      id: uuidv4()
+      topic,
+      note_id: uuidv4(),
     };
-    // Adds to the data base
-    readAndAppend(newNotes, "./db/db.json");
-    // Confirmation
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
+      if (err) {
+        console.error(err);
+      } else {
+        const parsedNotes = JSON.parse(data);
+        parsedNotes.push(newNote);
+        fs.writeFile('./db/db.json', JSON.stringify(parsedNotes, null, 4),
+        (writerErr) =>
+          writerErr
+            ? console.error(writerErr)
+            : console.info("Created a new note!")
+        );
+      }
+    });
+
     const response = {
       status: 'success',
-      body: newNotes,
+      body: newNote,
     };
-    console.log("Testing to make sure it works")
-    res.json(response);
+
+    console.log(response):
+    res.status(201).json(response);
   } else {
-    res.json('Error in posting item');
+    res.status(500).json('Error in posting');
   }
 });
-
-noteRouter.delete("/:id", (req, res) => {
+    
+note.delete("/:id", (req, res) => {
   readFromFile("./db/db.json").then((database) => {
     const data = json.parse(database);
     const newNotes = data.filter((item) => {
@@ -52,4 +61,4 @@ noteRouter.delete("/:id", (req, res) => {
   });
 })
 
-module.export = notesRouter;
+module.export = notes;
