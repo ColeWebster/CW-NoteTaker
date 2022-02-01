@@ -1,7 +1,7 @@
 // Import express package
 const express = require("express");
 const path = require("path");
-const api = require("/routes/index.js");
+const api = require("/index.js");
 
 // Open variable port
 const PORT = process.env.PORT || 3001;
