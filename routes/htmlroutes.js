@@ -1,9 +1,9 @@
 //Use path to path the express items
-const path = require("path");
 const router = require("express").Router();
+const path = require("path");
 
 // Notes
-router.get("/notes", (req,res) => {
+router.get("/", (req,res) => {
     res.sendFile(path.join(__dirname, "/public/notes.html"))
 });
 
