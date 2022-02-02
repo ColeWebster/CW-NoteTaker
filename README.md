@@ -6,40 +6,44 @@
             
 <a href="#description"> 1. Description</a>  
 
-<a href="#install"> 2. Installation </a>
+<a href="#install"> 2. About Assignment </a>
 
-<a href="#usage"> 4. Usage </a></li>
+<a href="#usage">3. Requirements </a></li>
 
-<a href="#contributing"> 4. Contributing </a>
 
-<a href="#test"> 5. Testing </a>
 
 ## Description <h1 id='description'> </h1>
           
     - This is a homework designed with starter code needing fixing. Using Express.js to complete the back end and connect the application deployed on Heroki.
 
     - https://fathomless-coast-51235.herokuapp.com/
+
+    - https://github.com/ColeWebster/CW-NoteTaker
     
-## Installation <h1 id='install'></h1>
+## About this Assignment <h1 id='install'></h1>
           
-    - Next
+    - Your assignment is to modify starter code to create an application called Note Taker that can be used to write and save notes. This application will use an Express.js back end and will save and retrieve note data from a JSON file.
+
+    - The application’s front end has already been created. It's your job to build the back end, connect the two, and then deploy the entire application to Heroku.
+
     
-## Usage <h1 id='usage'> </h1>
+## Requirements <h1 id='usage'> </h1>
           
-    - Next
+
+- GIVEN a note-taking application
+- WHEN I open the Note Taker
+- THEN I am presented with a landing page with a link to a notes page
+- WHEN I click on the link to the notes page
+- THEN I am presented with a page with existing notes listed in the left-hand column, plus empty fields to enter a new note title and the note’s text in the right-hand column
+- WHEN I enter a new note title and the note’s text
+- THEN a Save icon appears in the navigation at the top of the page
+- WHEN I click on the Save icon
+- THEN the new note I have entered is saved and appears in the left-hand column with the other existing notes
+- WHEN I click on an existing note in the list in the left-hand column
+- THEN that note appears in the right-hand column
+- WHEN I click on the Write icon in the navigation at the top of the page
+-  THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
 
 
+
     
-## Contributing <h1 id='contributing'></h1>
-          
-    - Next
-          
-    - Next
-          
-    - next
-    
-## Testing <h1 id='test'></h1>
-         
-    - nexe
-         
-    - ntext

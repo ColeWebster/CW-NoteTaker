@@ -1,15 +1,15 @@
 //Use path to path the express items
-const router = require("express").Router();
 const path = require("path");
+const router = require("express").Router();
 
 // Notes
-router.get("/", (req,res) => {
-    res.sendFile(path.join(__dirname, "/public/notes.html"))
+router.get('/', (req,res) => {
+    res.sendFile(path.join(__dirname, '../public/notes.html'))
 });
 
-// Home page - Wildcard
-router.get("*", (req,res) => {
-    res.sendFile(path.join(__dirname, "/public/index.html"))
-});
-
+//Wildcard
+router.get('*', (req,res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'))
+  });
+  
 module.exports = router;
