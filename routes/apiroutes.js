@@ -1,8 +1,9 @@
-const express = require("express");
 const {v4: uuidv4} = require('uuid');
+const fs = require('fs');
 const {readFromFile, writeToFile, readAndAppend} = require('../helpers/fsUtils')
 
 const router = require("express").Router();
+
 
 // Get
 router.get('/notes', (req,res) => {
@@ -12,15 +13,20 @@ router.get('/notes', (req,res) => {
 // Post
 router.post('/notes', (req,res) => {
   const { title, text } = req.body;
-
-  if (req.body) {
+// Destructuring assignment for the items in req.body
+  if (title && text) {
+// Variable for the object we will save    
     const newNote = {
       title,
       text,
       id: uuidv4(),
     };
     readAndAppend(newNote, './db/db.json');
-    res.json(`Note succesfully added`);
+    const response = {
+      status: 'success',
+      body: newNote,
+    };
+    res.json(response);
   } else {
     res.error('Error when adding')
   }
