@@ -12,10 +12,9 @@ router.get('/notes', (req,res) => {
 
 // Post
 router.post('/notes', (req,res) => {
+  console.log('Checking')
   const { title, text } = req.body;
-// Destructuring assignment for the items in req.body
   if (title && text) {
-// Variable for the object we will save    
     const newNote = {
       title,
       text,
@@ -26,6 +25,7 @@ router.post('/notes', (req,res) => {
       status: 'success',
       body: newNote,
     };
+    console.log("test")
     res.json(response);
   } else {
     res.error('Error when adding')
