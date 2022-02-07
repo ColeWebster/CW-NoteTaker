@@ -2,7 +2,9 @@ const { v4: uuidv4 } = require('uuid');
 const fs = require('fs');
 const { readFromFile, writeToFile, readAndAppend } = require('../helpers/fsUtils')
 
-const router = require("express").Router();
+const express = require('express');
+
+const router = express.Router();
 
 
 // Get
