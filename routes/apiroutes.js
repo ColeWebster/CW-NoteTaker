@@ -1,21 +1,19 @@
+const express = require("express");
 const { v4: uuidv4 } = require('uuid');
 const fs = require('fs');
 const { readFromFile, writeToFile, readAndAppend } = require('../helpers/fsUtils')
 
-const express = require('express');
 
 const router = express.Router();
 
 
 // Get
-router.get('/', (req, res) => {
+router.get('/notes', (req, res) => {
   readFromFile('./db/db.json').then(data => res.json(JSON.parse(data)))
 });
 
 // Post
-router.post('/', (req, res) => {
-  console.log('Checking')
-
+router.post('/notes', (req, res) => {
   const { title, text } = req.body;
 
   if (title && text) {
@@ -27,19 +25,19 @@ router.post('/', (req, res) => {
 
     readAndAppend(newNote, './db/db.json');
 
-    const response = {
+    const output = {
       status: 'success',
       body: newNote,
     };
     console.log("test")
 
-    res.json(response);
+    res.json(output);
   } else {
     res.error('Error when adding')
   }
 });
 
-router.delete('/'(req, res) => {
+router.delete('/notes', (req, res) => {
   readFromFile("./db/db.json").then((rawData) => {
     // Parse the data into a workable object.
     const data = JSON.parse(rawData);
