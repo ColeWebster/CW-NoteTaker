@@ -13,12 +13,11 @@
 
 
 ## Description <h1 id='description'> </h1>
-          
-    - This is a homework designed with starter code needing fixing. Using Express.js to complete the back end and connect the application deployed on Heroki.
+- This is a homework designed with starter code needing fixing. Using Express.js to complete the back end and connect the application deployed on Heroki.
 
-    - https://fathomless-coast-51235.herokuapp.com/
+- https://fathomless-coast-51235.herokuapp.com/
 
-    - https://github.com/ColeWebster/CW-NoteTaker
+- https://github.com/ColeWebster/CW-NoteTaker
     
 ## About this Assignment <h1 id='install'></h1>
           
